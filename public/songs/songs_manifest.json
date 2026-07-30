@@ -1,0 +1,146 @@
+[
+  {
+    "id": "hallelujah",
+    "title": "Hallelujah",
+    "artist": "Leonard Cohen",
+    "language": "English",
+    "rhymes": [
+      ["chord", "Lord"],
+      ["fall", "Hallelujah"],
+      ["mind", "behind"]
+    ]
+  },
+  {
+    "id": "blinding_lights",
+    "title": "Blinding Lights",
+    "artist": "The Weeknd",
+    "language": "English",
+    "rhymes": [
+      ["cold", "behold"],
+      ["street", "sleep"],
+      ["light", "sight"]
+    ]
+  },
+  {
+    "id": "michtav_leachi",
+    "title": "מכתב לאחי",
+    "artist": "קובי אפללו",
+    "language": "Hebrew",
+    "rhymes": [
+      ["לוותר", "יותר"],
+      ["מחר", "עבר"],
+      ["נסתר", "מותר"]
+    ]
+  },
+  {
+    "id": "keev_shel_lochamim",
+    "title": "כאב של לוחמים",
+    "artist": "עידן עמדי",
+    "language": "Hebrew",
+    "rhymes": [
+      ["מילים", "חיילים"],
+      ["תמונות", "דמעות"],
+      ["לבד", "אחד"]
+    ]
+  },
+  {
+    "id": "katanti",
+    "title": "קטנתי",
+    "artist": "יונתן רזאל",
+    "language": "Hebrew",
+    "rhymes": [
+      ["החסדים", "האמת"],
+      ["אחי", "עבדך"]
+    ]
+  },
+  {
+    "id": "orot_kechulim",
+    "title": "אורות כחולים",
+    "artist": "עומר אדם",
+    "language": "Hebrew",
+    "rhymes": [
+      ["היום", "מקום"],
+      ["מחר", "נגמר"],
+      ["אחורה", "מטפורה"],
+      ["נסתדר", "אחר"]
+    ]
+  },
+  {
+    "id": "hamatzav_shel_hayom",
+    "title": "המצב של היום",
+    "artist": "אופק אדנק",
+    "language": "Hebrew",
+    "rhymes": [
+      ["להפיל", "להפליל"],
+      ["בכיר", "מכיר"],
+      ["סביר", "שביר"],
+      ["באוויר", "תסביר"]
+    ]
+  },
+  {
+    "id": "terminal_3",
+    "title": "טרמינל 3",
+    "artist": "דודו אהרון",
+    "language": "Hebrew",
+    "rhymes": [
+      ["טיול", "איסטנבול"],
+      ["אומרת", "רכבת"],
+      ["אופק", "הדופק"]
+    ]
+  },
+  {
+    "id": "culam_ganavim",
+    "title": "כולם גנבים",
+    "artist": "אושר כהן",
+    "language": "Hebrew",
+    "rhymes": [
+      ["תגלגלי", "תגלי"],
+      ["בגדים", "להורים"],
+      ["הביתה", "בלילה"],
+      ["אחד", "הלבד"]
+    ]
+  },
+  {
+    "id": "style_chul",
+    "title": "סטייל חו״ל",
+    "artist": "אופק אדנק",
+    "language": "Hebrew",
+    "rhymes": [
+      ["אסור", "שיעור"],
+      ["כדאי", "אני"],
+      ["מתקופפת", "מתופפת"],
+      ["הקיץ", "הטייץ"],
+      ["עיניים", "אופניים"]
+    ]
+  },
+  {
+    "id": "rolex_vekasket",
+    "title": "רולקס וקסקט",
+    "artist": "עדן בן זקן",
+    "language": "Hebrew",
+    "rhymes": [
+      ["הפרקט", "וקסקט"],
+      ["שקט", "סרט"],
+      ["אותי", "שלי"],
+      ["אותך", "שלך"],
+      ["פתרון", "שיכרון"],
+      ["מזומן", "מכאן"],
+      ["אוטו", "בלוטו"],
+      ["מתייחסת", "תופסת"]
+    ]
+  },
+  {
+    "id": "shaatayim",
+    "title": "שעתיים",
+    "artist": "אופק אדנק",
+    "language": "Hebrew",
+    "rhymes": [
+      ["לוקו", "שוקו"],
+      ["באוטו", "בלוטו"],
+      ["מסוכן", "הזמן"],
+      ["רומנטי", "שרמנטי"],
+      ["הברכיים", "למצלתיים"],
+      ["fine", "shy"]
+    ]
+  }
+]
