@@ -4,6 +4,7 @@ import { HelpCircle, Star, Clock, AlertCircle, Check } from 'lucide-react';
 export default function GameScreen({ 
   gameState, 
   allSongs, // Full list to grab distractors if filtered is too small
+  currentQuestion,
   onAnswer, 
   onGameOver 
 }) {
@@ -33,7 +34,7 @@ export default function GameScreen({
   useEffect(() => {
     startRound();
     return () => clearInterval(timerRef.current);
-  }, [currentRound, currentPlayerIndex]);
+  }, [currentRound, currentPlayerIndex, currentQuestion]);
 
   // Handle countdown
   useEffect(() => {
@@ -43,31 +44,29 @@ export default function GameScreen({
   }, [timeLeft, answerRevealed]);
 
   const startRound = () => {
-    // 1. Pick a random song from the filtered list
-    const randomSong = filteredSongs[Math.floor(Math.random() * filteredSongs.length)];
-    setCurrentSong(randomSong);
+    if (!currentQuestion) return;
+    const { song, rhyme, rhymeIndex } = currentQuestion;
 
-    // 2. Pick a random rhyme pair from the song
-    if (randomSong && randomSong.rhymes && randomSong.rhymes.length > 0) {
-      const rhymePair = randomSong.rhymes[0]; // First rhyme pair
-      setCurrentRhyme(rhymePair);
-      
-      // Prep second rhyme pair as a potential hint
-      if (randomSong.rhymes.length > 1) {
-        const secondRhyme = randomSong.rhymes[1];
-        setHintText(`רמז - חרוז נוסף: ${secondRhyme[0]} ↔ ${secondRhyme[1]}`);
-      } else {
-        setHintText(`רמז: השפה היא ${randomSong.language === 'Hebrew' ? 'עברית' : 'אנגלית'}`);
-      }
+    setCurrentSong(song);
+    setCurrentRhyme(rhyme);
+
+    // Prep second rhyme pair as a potential hint
+    if (song.rhymes && song.rhymes.length > 1) {
+      // Show another rhyme from the same song
+      const otherRhymeIdx = (rhymeIndex + 1) % song.rhymes.length;
+      const secondRhyme = song.rhymes[otherRhymeIdx];
+      setHintText(`רמז - חרוז נוסף: ${secondRhyme[0]} ↔ ${secondRhyme[1]}`);
+    } else {
+      setHintText(`רמז: השפה היא ${song.language === 'Hebrew' ? 'עברית' : 'אנגלית'}`);
     }
 
-    // 3. Generate 4 options (1 correct + 3 distractors)
-    const optionsList = [randomSong];
+    // Generate 4 options (1 correct + 3 distractors)
+    const optionsList = [song];
     
     // Pool of potential distractors: first try filtered, then all songs
-    let distractorPool = filteredSongs.filter((s) => s.id !== randomSong.id);
+    let distractorPool = filteredSongs.filter((s) => s.id !== song.id);
     if (distractorPool.length < 3) {
-      distractorPool = allSongs.filter((s) => s.id !== randomSong.id);
+      distractorPool = allSongs.filter((s) => s.id !== song.id);
     }
 
     // Shuffle and pick 3 unique distractors
@@ -76,7 +75,7 @@ export default function GameScreen({
       optionsList.push(shuffledPool[i]);
     }
 
-    // If we still don't have 4 (e.g. very few songs total), pad with placeholders
+    // If we still don't have 4, pad with placeholders
     while (optionsList.length < 4) {
       optionsList.push({
         id: `placeholder_${optionsList.length}`,

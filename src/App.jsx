@@ -48,14 +48,36 @@ export default function App() {
       initialScores[p] = 0;
     });
 
+    // Create deck of unique song-rhyme pairs
+    const deck = [];
+    config.filteredSongs.forEach((song) => {
+      if (song.rhymes && song.rhymes.length > 0) {
+        song.rhymes.forEach((rhyme, idx) => {
+          deck.push({
+            song,
+            rhyme,
+            rhymeIndex: idx
+          });
+        });
+      }
+    });
+
+    // Shuffle the deck
+    const shuffledDeck = [...deck].sort(() => 0.5 - Math.random());
+
+    // Calculate maximum possible rounds without repeating any rhyme
+    const maxRounds = Math.max(1, Math.floor(shuffledDeck.length / config.players.length));
+    const finalRounds = Math.min(config.rounds, maxRounds);
+
     setGameState({
       filteredSongs: config.filteredSongs,
       players: config.players,
-      rounds: config.rounds,
+      rounds: finalRounds,
       currentRound: 1,
       currentPlayerIndex: 0,
       scores: initialScores,
-      history: []
+      history: [],
+      deck: shuffledDeck
     });
     setScreen('game');
   };
@@ -137,6 +159,11 @@ export default function App() {
         <GameScreen
           gameState={gameState}
           allSongs={songs}
+          currentQuestion={
+            gameState.deck 
+              ? gameState.deck[(gameState.currentRound - 1) * gameState.players.length + gameState.currentPlayerIndex] 
+              : null
+          }
           onAnswer={handleAnswerWithDetails}
           onGameOver={() => setScreen('results')}
         />
