@@ -23,7 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Ignore raw song lyrics and PDF files
-public/songs/*.txt
-public/songs/*.pdf
+# Ignore raw songs folder entirely
+public/songs/
 
