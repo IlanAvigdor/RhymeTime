@@ -24,7 +24,7 @@ export default function App() {
 
   // Fetch songs list from manifest file in public directory
   useEffect(() => {
-    fetch('/songs_manifest.json')
+    fetch(`${import.meta.env.BASE_URL}songs_manifest.json`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to load songs manifest');
